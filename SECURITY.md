@@ -14,7 +14,6 @@ We take the security of this project seriously. If you discover a security vulne
 
 Instead, send a detailed report to the repository owner via:
 
-- **Email**: bim75898@gmail.com
 - **GitHub Security Advisory**: Use the "Report a vulnerability" button under the Security tab of this repository.
 
 ### What to include
