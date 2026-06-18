@@ -1,0 +1,47 @@
+# Apache güvenlik yapılandırması
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # .env ve .sql dosyalarına erişimi engelle
+    RewriteRule \.(env|sql|md|log)$ - [F,L]
+
+    # Dizin listelemeyi kapat
+    Options -Indexes
+
+    # Hassas dizinlere erişimi kapat
+    RewriteRule ^config/ - [F,L]
+    RewriteRule ^sql/ - [F,L]
+</IfModule>
+
+# PHP oturum güvenliği
+<IfModule mod_php.c>
+    php_value session.cookie_httponly 1
+    php_value session.cookie_secure 0
+    php_value session.use_only_cookies 1
+    php_value session.use_strict_mode 1
+    php_value session.cookie_samesite "Strict"
+</IfModule>
+
+# Güvenlik başlıkları
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+</IfModule>
+
+# Hassas dosyaları koru
+<FilesMatch "\.(env|sql|md|log|yml|json|lock)$">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^(config|database)\.php$">
+    Require all denied
+</FilesMatch>
+
+# Varsayılan karakter seti
+AddDefaultCharset UTF-8
+
+# Sinyore etme
+ServerSignature Off
