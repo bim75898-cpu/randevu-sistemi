@@ -163,4 +163,10 @@ curl -X POST -H "Authorization: Bearer YOUR_API_KEY" \
 
 ## License
 
-MIT
+GNU Affero General Public License v3.0 (AGPL v3)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+**Key requirement**: If you modify this software and run it on a network server (e.g., as a web application), you must make the complete source code of your modified version available to all users who interact with it remotely.
+
+See the [LICENSE](LICENSE) file for the full license text.
