@@ -1,0 +1,39 @@
+# OS files
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+.env.local
+
+# Logs
+logs/
+*.log
+
+# Backups
+backups/
+*.sql.gz
+*.sql.zip
+
+# Cache
+cache/
+
+# Assets (generated at runtime)
+assets/sms_log.txt
+
+# FPDF font cache
+lib/font/*.json
+!lib/font/helvetica.json
+!lib/font/helveticab.json
+
+# Composer (if used later)
+vendor/
+composer.lock
